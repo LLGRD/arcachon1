@@ -1,0 +1,267 @@
+:root {
+  color-scheme: dark;
+  font-family: "Avenir Next", "Futura", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 122, 89, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(68, 170, 196, 0.16), transparent 32%),
+    linear-gradient(180deg, #0a1119 0%, #0f1722 100%);
+  color: #eff7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input,
+label {
+  font: inherit;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.app-shell {
+  width: min(1800px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 32px 0 40px;
+}
+
+.app-header {
+  display: grid;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff9a7a;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.app-header h1 {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  line-height: 0.94;
+}
+
+.lede {
+  margin: 12px 0 0;
+  max-width: 62ch;
+  color: rgba(239, 247, 255, 0.74);
+  font-size: 1rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.file-picker,
+.controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8fbff;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.file-picker:hover,
+.controls button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 154, 122, 0.42);
+  background: rgba(255, 154, 122, 0.12);
+}
+
+.file-picker input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.viewer-card {
+  padding: 18px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    rgba(6, 11, 18, 0.86);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+}
+
+.viewer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(54, 176, 149, 0.18);
+  color: #adfff2;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hint {
+  color: rgba(239, 247, 255, 0.62);
+  font-size: 0.92rem;
+}
+
+.viewer {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  background: #050a10;
+  cursor: crosshair;
+}
+
+.analysis-grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.tool-card {
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(6, 11, 18, 0.76);
+}
+
+.tool-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.tool-kicker {
+  margin: 0 0 6px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #89d9ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.tool-header h2 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+}
+
+.toggle-control {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+  color: rgba(239, 247, 255, 0.82);
+  font-weight: 600;
+}
+
+.toggle-control input {
+  width: 18px;
+  height: 18px;
+  accent-color: #48ff00;
+}
+
+.slider-control {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.slider-control span {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: rgba(239, 247, 255, 0.82);
+  font-weight: 600;
+}
+
+.slider-control output {
+  min-width: 3ch;
+  color: #adfff2;
+}
+
+.slider-control input[type="range"] {
+  width: 100%;
+}
+
+.segmentation-viewer {
+  display: block;
+  width: min(100%, 720px);
+  height: auto;
+  margin-top: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #050a10;
+}
+
+.tool-note {
+  margin: 14px 0 0;
+  color: rgba(239, 247, 255, 0.72);
+  font-size: 0.95rem;
+}
+
+.help-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 18px;
+}
+
+.help-grid p,
+.status {
+  margin: 0;
+  color: rgba(239, 247, 255, 0.74);
+}
+
+.help-grid strong {
+  color: #ffddb5;
+}
+
+.status {
+  margin-top: 18px;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 980px) {
+  .app-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
